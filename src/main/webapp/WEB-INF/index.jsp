@@ -18,12 +18,12 @@
     	</tr>
     <c:forEach items="${languages}" var="language" varStatus="loop">
         <tr>        
-		    <td><a href = "/languages/${loop.index}"><c:out value="${language.name}"/></a></td>
+		    <td><a href = "/languages/${language.id}"><c:out value="${language.name}"/></a></td>
 		    <td><c:out value="${language.creator}"/></td>
 		    <td><c:out value="${language.version}"/></td>
 		    <td>
-		    	<a href="/languages/delete/${loop.index}">Delete</a>
-		    	<a href="/languages/edit/${loop.index}">Edit</a>
+		    	<a href="/languages/delete/${language.id}">Delete</a>
+		    	<a href="/languages/edit/${language.id}">Edit</a>
 		    </td>
         </tr>
     </c:forEach>
@@ -31,6 +31,7 @@
     
     <p>${errors}</p>
     <form:form method="POST" action="/languages/new" modelAttribute="language">
+    
 	    <form:label path="name">Name
 	    <form:errors path="name"/>
 	    <form:input path="name"/></form:label>

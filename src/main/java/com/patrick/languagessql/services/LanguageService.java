@@ -22,8 +22,12 @@ public class LanguageService {
 	}
 	
 	public void destroyLanguage(Long id) {
-		if (id < languageRepository.count()) {
-			languageRepository.delete(id);
-		}
+		languageRepository.delete(id);
 	}
+    public Language findLanguageById(Long id) {
+    	return languageRepository.findOne(id);
+    }
+    public void editLanguage(Language language) {
+        languageRepository.save(language);
+}
 }
